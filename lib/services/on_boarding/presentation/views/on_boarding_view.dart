@@ -4,6 +4,8 @@ import 'package:laza/services/on_boarding/presentation/views/widgets/on_boarding
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
 
+  static const String routeName = 'onBoarding';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
