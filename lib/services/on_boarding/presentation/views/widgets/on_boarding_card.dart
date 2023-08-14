@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
-import 'package:laza/services/home/presentation/views/home_view.dart';
+import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
 
 import 'custom_button.dart';
 
@@ -91,6 +91,6 @@ class _OnBoardingCardState extends State<OnBoardingCard> {
   }
 
   void btnOnPressed() {
-    Navigator.pushReplacementNamed(context, HomeView.routeName);
+    Navigator.pushNamed(context, GetStartedView.routeName);
   }
 }
