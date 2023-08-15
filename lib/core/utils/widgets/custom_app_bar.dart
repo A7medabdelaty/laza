@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 
-class GetStartedAppBar extends StatelessWidget implements PreferredSizeWidget{
-  const GetStartedAppBar({super.key});
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,5 +30,5 @@ class GetStartedAppBar extends StatelessWidget implements PreferredSizeWidget{
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 }
