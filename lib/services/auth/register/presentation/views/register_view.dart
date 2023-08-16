@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/utils/styles/text_style.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
+import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/auth/register/presentation/views/widgets/register_form.dart';
 
 class RegisterView extends StatelessWidget {
@@ -25,14 +25,7 @@ class RegisterView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 15.0),
-                child: Text(
-                  'Sign up',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.text28,
-                ),
-              ),
+              TitleText(text: 'Sign up'),
               RegisterForm(),
               CustomButton(txt: 'Sign up')
             ],

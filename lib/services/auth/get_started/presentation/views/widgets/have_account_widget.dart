@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/auth/login/presentation/views/login_view.dart';
 
 class HaveAccountText extends StatelessWidget {
   const HaveAccountText({super.key});
@@ -15,7 +16,9 @@ class HaveAccountText extends StatelessWidget {
           style: AppTextStyles.text15,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, LoginView.routeName);
+          },
           child: Text(
             'SignIn',
             style: AppTextStyles.text15.copyWith(
