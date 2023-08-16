@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/auth/login/presentation/views/widgets/forgot_password_text.dart';
 import 'package:laza/services/auth/register/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:laza/services/auth/register/presentation/views/widgets/remember_me_widget.dart';
 
@@ -29,13 +29,7 @@ class LoginForm extends StatelessWidget {
           const SizedBox(
             height: 30.0,
           ),
-          Text(
-            'Forgot password?',
-            style: AppTextStyles.text15.copyWith(
-              color: const Color(0xffEA4335),
-            ),
-            textAlign: TextAlign.end,
-          ),
+          const ForgotPasswordText(),
           const SizedBox(
             height: 30,
           ),

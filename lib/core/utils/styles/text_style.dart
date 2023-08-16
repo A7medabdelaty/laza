@@ -14,6 +14,11 @@ class AppTextStyles {
     color: AppColors.darkBlack,
   );
 
+  static const text22 = TextStyle(
+    fontSize: 22.0,
+    fontWeight: FontWeight.w500,
+  );
+
   static const text15 = TextStyle(
     fontSize: 15.0,
     color: AppColors.textLight,

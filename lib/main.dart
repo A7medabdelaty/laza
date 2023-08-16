@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/theme.dart';
+import 'package:laza/services/auth/forget_password/presentation/views/confirmation_code_view.dart';
+import 'package:laza/services/auth/forget_password/presentation/views/forget_password_view.dart';
+import 'package:laza/services/auth/forget_password/presentation/views/new_password.dart';
 import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
 import 'package:laza/services/auth/login/presentation/views/login_view.dart';
 import 'package:laza/services/auth/register/presentation/views/register_view.dart';
@@ -24,6 +27,9 @@ class MyApp extends StatelessWidget {
         GetStartedView.routeName: (context) => const GetStartedView(),
         RegisterView.routeName: (context) => const RegisterView(),
         LoginView.routeName: (context) => const LoginView(),
+        ForgetPasswordView.routeName: (context) => ForgetPasswordView(),
+        ConfirmationCodeView.routeName: (context) => const ConfirmationCodeView(),
+        NewPasswordView.routeName: (context) => const NewPasswordView(),
       },
       home: const OnBoardingView(),
     );
