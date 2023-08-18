@@ -4,6 +4,7 @@ import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/auth/login/presentation/views/widgets/login_form.dart';
+import 'package:laza/services/home/presentation/views/home_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -22,11 +23,11 @@ class LoginView extends StatelessWidget {
                 MediaQuery.of(context).padding.top -
                 MediaQuery.of(context).padding.bottom,
           ),
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
+              const Column(
                 children: [
                   TitleText(text: 'Welcome'),
                   Text(
@@ -36,11 +37,11 @@ class LoginView extends StatelessWidget {
                   ),
                 ],
               ),
-              LoginForm(),
+              const LoginForm(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       'By connecting your account confirm that you agree with our Term and Condition',
@@ -48,7 +49,12 @@ class LoginView extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  CustomButton(txt: 'Login'),
+                  CustomButton(
+                    txt: 'Login',
+                    onTap: () {
+                      Navigator.pushNamed(context, HomeView.routeName);
+                    },
+                  ),
                 ],
               )
             ],

@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         ConfirmationCodeView.routeName: (context) => const ConfirmationCodeView(),
         NewPasswordView.routeName: (context) => const NewPasswordView(),
       },
-      home: const OnBoardingView(),
+      home: const HomeView(),
     );
   }
 }
