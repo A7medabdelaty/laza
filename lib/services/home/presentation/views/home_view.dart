@@ -5,6 +5,8 @@ import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
 
+import 'widgets/new_arrival_list.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -36,6 +38,9 @@ class HomeView extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          SliverToBoxAdapter(
+            child: NewArrivalList(),
           )
         ],
       ),
