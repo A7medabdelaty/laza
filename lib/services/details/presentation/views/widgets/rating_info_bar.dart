@@ -88,7 +88,7 @@ class _RatingInfoBarState extends State<RatingInfoBar> {
                   rating = rate;
                 });
               },
-            )
+            ),
           ],
         )
       ],

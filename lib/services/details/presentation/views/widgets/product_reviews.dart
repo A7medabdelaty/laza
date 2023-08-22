@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 import 'package:laza/services/details/presentation/views/product_reviews_view.dart';
-import 'package:laza/services/details/presentation/views/widgets/rating_info_bar.dart';
+import 'package:laza/services/details/presentation/views/widgets/product_review_card.dart';
 
 class ProductReviews extends StatelessWidget {
   const ProductReviews({super.key});
@@ -37,15 +37,7 @@ class ProductReviews extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 15.0),
-          const RatingInfoBar(),
-          const SizedBox(height: 10.0),
-          const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada eget vitae amet...',
-            maxLines: 3,
-            style: AppTextStyles.text15,
-            overflow: TextOverflow.ellipsis,
-          ),
+          const ProductReviewCard(),
         ],
       ),
     );

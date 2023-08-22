@@ -22,18 +22,18 @@ class ProductDetailsView extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
-        leadingWidget: ArrowBackIcon(),
+        leadingWidget: const ArrowBackIcon(),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: ImageIcon(
+            icon: const ImageIcon(
               AssetImage('assets/images/bag.png'),
               color: AppColors.darkBlack,
             ),
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
