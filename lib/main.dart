@@ -11,6 +11,8 @@ import 'package:laza/services/details/presentation/views/product_details_view.da
 import 'package:laza/services/home/presentation/views/home_view.dart';
 import 'package:laza/services/on_boarding/presentation/views/on_boarding_view.dart';
 
+import 'services/details/presentation/views/product_reviews_view.dart';
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -41,8 +43,10 @@ class MyApp extends StatelessWidget {
         ConfirmationCodeView.routeName: (context) =>
             const ConfirmationCodeView(),
         NewPasswordView.routeName: (context) => const NewPasswordView(),
+        ProductDetailsView.routeName: (context) => const ProductDetailsView(),
+        ProductReviewsView.routeName: (context) => const ProductReviewsView(),
       },
-      home: const ProductDetailsView(),
+      home: const HomeView(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
@@ -14,7 +15,9 @@ class GetStartedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        leadingWidget: ArrowBackIcon(),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

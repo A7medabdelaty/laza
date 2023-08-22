@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:laza/core/utils/styles/colors.dart';
+import 'package:laza/core/utils/widgets/app_bar_custom_widget.dart';
+import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
-import 'package:laza/services/home/presentation/views/widgets/home_app_bar.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
 
 import 'widgets/new_arrival_list.dart';
@@ -14,9 +16,30 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: HomeCustomAppBar(),
-      body: CustomScrollView(
+    return Scaffold(
+      appBar: CustomAppBar(
+        leadingWidget: IconButton(
+          onPressed: () {},
+          icon: const ImageIcon(
+            AssetImage('assets/images/menu.png'),
+            size: 25.0,
+            color: AppColors.darkBlack,
+          ),
+        ),
+        actions: [
+          AppBarCustomWidget(
+            icon: IconButton(
+              onPressed: () {},
+              icon: const ImageIcon(
+                AssetImage('assets/images/bag.png'),
+                size: 25.0,
+                color: AppColors.darkBlack,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: const CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
             child: Padding(

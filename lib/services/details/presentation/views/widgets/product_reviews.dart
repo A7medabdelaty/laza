@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/details/presentation/views/product_reviews_view.dart';
 import 'package:laza/services/details/presentation/views/widgets/rating_info_bar.dart';
 
 class ProductReviews extends StatelessWidget {
@@ -22,11 +23,16 @@ class ProductReviews extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Text(
-                'View All',
-                style: AppTextStyles.text13.copyWith(
-                  fontWeight: FontWeight.normal,
-                  color: AppColors.textLight,
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ProductReviewsView.routeName);
+                },
+                child: Text(
+                  'View All',
+                  style: AppTextStyles.text13.copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: AppColors.textLight,
+                  ),
                 ),
               ),
             ],

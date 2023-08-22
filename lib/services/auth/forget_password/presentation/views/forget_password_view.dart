@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
@@ -16,7 +18,9 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        leadingWidget: ArrowBackIcon(),
+      ),
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(
