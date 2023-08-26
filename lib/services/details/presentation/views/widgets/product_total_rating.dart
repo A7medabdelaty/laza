@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
+import '../add_review_view.dart';
+
 class ProductTotalRating extends StatefulWidget {
   const ProductTotalRating({super.key});
 
@@ -59,7 +61,9 @@ class _ProductTotalRatingState extends State<ProductTotalRating> {
             shape: ContinuousRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, AddReviewView.routeName);
+            },
             color: AppColors.orange,
             child: Row(
               children: [
