@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
+class AuthCustomTextFormField extends StatelessWidget {
+  const AuthCustomTextFormField(
       {super.key, required this.controller, required this.label});
 
   final TextEditingController controller;

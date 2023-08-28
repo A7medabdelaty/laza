@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/account_info/address/presentation/views/address_view.dart';
 
 class AddressCard extends StatelessWidget {
   const AddressCard({super.key});
@@ -9,7 +10,9 @@ class AddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, AddressView.routeName);
+      },
       child: Column(
         children: [
           Row(

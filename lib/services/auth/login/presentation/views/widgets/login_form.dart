@@ -15,14 +15,14 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          CustomTextFormField(
+          AuthCustomTextFormField(
             controller: usernameController,
             label: 'Username',
           ),
           const SizedBox(
             height: 20.0,
           ),
-          CustomTextFormField(
+          AuthCustomTextFormField(
             controller: passwordController,
             label: 'password',
           ),

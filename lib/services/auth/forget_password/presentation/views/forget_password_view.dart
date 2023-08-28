@@ -42,7 +42,7 @@ class ForgetPasswordView extends StatelessWidget {
                       height: 20,
                     ),
                     Image.asset('assets/images/cloud.png'),
-                    CustomTextFormField(
+                    AuthCustomTextFormField(
                       controller: emailController,
                       label: 'Email Address',
                     ),

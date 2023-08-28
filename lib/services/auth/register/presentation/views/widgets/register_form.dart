@@ -16,21 +16,21 @@ class RegisterForm extends StatelessWidget {
       child: Form(
         child: Column(
           children: [
-            CustomTextFormField(
+            AuthCustomTextFormField(
               controller: usernameController,
               label: 'Username',
             ),
             const SizedBox(
               height: 20,
             ),
-            CustomTextFormField(
+            AuthCustomTextFormField(
               controller: passwordController,
               label: 'Password',
             ),
             const SizedBox(
               height: 20,
             ),
-            CustomTextFormField(
+            AuthCustomTextFormField(
               controller: emailController,
               label: 'email',
             ),
