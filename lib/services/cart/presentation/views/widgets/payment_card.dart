@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/account_info/payment/presentation/views/payment_view.dart';
 
 class PaymentCard extends StatelessWidget {
   const PaymentCard({super.key});
@@ -9,7 +10,9 @@ class PaymentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, PaymentView.routeName);
+      },
       child: Column(
         children: [
           Row(

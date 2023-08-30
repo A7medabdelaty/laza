@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:laza/core/utils/styles/theme.dart';
 import 'package:laza/services/account_info/address/presentation/views/address_view.dart';
+import 'package:laza/services/account_info/payment/presentation/views/payment_view.dart';
 import 'package:laza/services/auth/forget_password/presentation/views/confirmation_code_view.dart';
 import 'package:laza/services/auth/forget_password/presentation/views/forget_password_view.dart';
 import 'package:laza/services/auth/forget_password/presentation/views/new_password.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         AddReviewView.routeName: (context) => const AddReviewView(),
         CartView.routeName: (context) => const CartView(),
         AddressView.routeName: (context) => AddressView(),
+        PaymentView.routeName: (context) => const PaymentView(),
       },
       home: const HomeView(),
     );
