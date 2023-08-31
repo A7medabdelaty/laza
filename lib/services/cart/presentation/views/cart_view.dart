@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
+import 'package:laza/services/cart/presentation/views/order_confirmed_view.dart';
 import 'package:laza/services/cart/presentation/views/widgets/address_card.dart';
 import 'package:laza/services/cart/presentation/views/widgets/cart_products_list.dart';
 import 'package:laza/services/cart/presentation/views/widgets/order_info_card.dart';
@@ -27,11 +28,11 @@ class CartView extends StatelessWidget {
                 MediaQuery.of(context).padding.top -
                 MediaQuery.of(context).padding.bottom,
           ),
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   children: [
@@ -46,7 +47,12 @@ class CartView extends StatelessWidget {
                   ],
                 ),
               ),
-              CustomButton(text: 'Checkout'),
+              CustomButton(
+                text: 'Checkout',
+                onTap: () {
+                  Navigator.pushNamed(context, OrderConfirmedView.routeName);
+                },
+              ),
             ],
           ),
         ),

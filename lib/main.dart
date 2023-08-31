@@ -16,6 +16,7 @@ import 'package:laza/services/details/presentation/views/product_details_view.da
 import 'package:laza/services/home/presentation/views/home_view.dart';
 import 'package:laza/services/on_boarding/presentation/views/on_boarding_view.dart';
 
+import 'services/cart/presentation/views/order_confirmed_view.dart';
 import 'services/details/presentation/views/product_reviews_view.dart';
 
 void main() {
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         AddressView.routeName: (context) => AddressView(),
         PaymentView.routeName: (context) => const PaymentView(),
         NewCardView.routeName: (context) => const NewCardView(),
+        OrderConfirmedView.routeName: (context) => const OrderConfirmedView(),
       },
       home: const HomeView(),
     );
