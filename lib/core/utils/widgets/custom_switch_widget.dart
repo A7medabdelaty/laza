@@ -4,8 +4,9 @@ import 'package:laza/core/utils/styles/colors.dart';
 import '../styles/text_style.dart';
 
 class CustomSwitchWidget extends StatefulWidget {
-  const CustomSwitchWidget({super.key, required this.text});
+  const CustomSwitchWidget({super.key, required this.text, this.leadingWidget = const SizedBox()});
 
+  final Widget leadingWidget;
   final String text;
 
   @override
@@ -19,6 +20,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        widget.leadingWidget,
         Text(
           widget.text,
           style: AppTextStyles.text15.copyWith(

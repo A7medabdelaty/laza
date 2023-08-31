@@ -5,6 +5,7 @@ import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/cart/presentation/views/cart_view.dart';
+import 'package:laza/services/home/presentation/views/app_drawer.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
 
@@ -17,10 +18,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> key = GlobalKey();
     return Scaffold(
+      key: key,
+      drawer: const AppDrawer(),
       appBar: CustomAppBar(
         leadingWidget: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            key.currentState!.openDrawer();
+          },
           icon: const ImageIcon(
             AssetImage('assets/images/menu.png'),
             size: 25.0,
