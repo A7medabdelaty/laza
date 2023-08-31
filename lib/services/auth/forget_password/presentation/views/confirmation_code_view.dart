@@ -54,7 +54,7 @@ class ConfirmationCodeView extends StatelessWidget {
                     height: 25,
                   ),
                   CustomButton(
-                    txt: 'Confirm Code',
+                    text: 'Confirm Code',
                     onTap: () {
                       Navigator.pushNamed(context, NewPasswordView.routeName);
                     },

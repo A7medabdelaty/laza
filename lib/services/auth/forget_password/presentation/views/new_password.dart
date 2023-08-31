@@ -36,7 +36,7 @@ class NewPasswordView extends StatelessWidget {
                 children: [
                   const HintText(text: 'Please write your new password.'),
                   CustomButton(
-                    txt: 'Reset Password',
+                    text: 'Reset Password',
                     onTap: () {
                       Navigator.pushNamed(context, LoginView.routeName);
                     },

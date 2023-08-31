@@ -36,7 +36,7 @@ class PaymentView extends StatelessWidget {
                 ],
               ),
             ),
-            CustomButton(txt: 'Save Card'),
+            CustomButton(text: 'Save Card'),
           ],
         ),
       ),

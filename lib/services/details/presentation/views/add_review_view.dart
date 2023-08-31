@@ -45,7 +45,7 @@ class AddReviewView extends StatelessWidget {
                   ],
                 ),
               ),
-              CustomButton(txt: 'Submit Review'),
+              CustomButton(text: 'Submit Review'),
             ],
           ),
         ),

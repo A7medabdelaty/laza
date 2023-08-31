@@ -53,7 +53,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                   CustomButton(
-                    txt: 'Login',
+                    text: 'Login',
                     onTap: () {
                       Navigator.pushNamed(context, HomeView.routeName);
                     },

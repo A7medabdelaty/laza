@@ -28,7 +28,7 @@ class GetStartedView extends StatelessWidget {
             children: [
               const HaveAccountText(),
               CustomButton(
-                txt: 'Create an Account',
+                text: 'Create an Account',
                 onTap: () {
                   Navigator.pushNamed(context, RegisterView.routeName);
                 },

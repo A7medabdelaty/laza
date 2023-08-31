@@ -74,7 +74,7 @@ class AddressView extends StatelessWidget {
               ],
             ),
           ),
-          const CustomButton(txt: 'Save Address'),
+          const CustomButton(text: 'Save Address'),
         ],
       ),
     );

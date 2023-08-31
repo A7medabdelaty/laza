@@ -51,7 +51,7 @@ class ProductDetailsView extends StatelessWidget {
             SizedBox(height: 20.0),
             ProductTotalPrice(),
             SizedBox(height: 20.0),
-            CustomButton(txt: 'Add to Cart'),
+            CustomButton(text: 'Add to Cart'),
           ],
         ),
       ),

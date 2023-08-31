@@ -59,7 +59,7 @@ class ForgetPasswordView extends StatelessWidget {
                     height: 25,
                   ),
                   CustomButton(
-                    txt: 'Confirm Mail',
+                    text: 'Confirm Mail',
                     onTap: () {
                       Navigator.pushNamed(
                           context, ConfirmationCodeView.routeName);

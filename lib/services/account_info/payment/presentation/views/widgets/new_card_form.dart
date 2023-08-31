@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:laza/core/utils/widgets/custom_switch_widget.dart';
 import 'package:laza/core/utils/widgets/custom_text_form_field.dart';
 
 class NewCardForm extends StatelessWidget {
@@ -45,7 +44,6 @@ class NewCardForm extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20.0),
-        const CustomSwitchWidget(text: 'Save card info'),
       ],
     );
   }

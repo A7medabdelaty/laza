@@ -3,9 +3,9 @@ import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.txt, this.onTap});
+  const CustomButton({super.key, required this.text, this.onTap});
 
-  final String txt;
+  final String text;
   final void Function()? onTap;
 
   @override
@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         color: AppColors.primaryColor,
         child: Text(
-          txt,
+          text,
           style: AppTextStyles.text17.copyWith(color: Colors.white),
           textAlign: TextAlign.center,
         ),

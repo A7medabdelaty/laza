@@ -30,7 +30,7 @@ class RegisterView extends StatelessWidget {
             children: [
               TitleText(text: 'Sign up'),
               RegisterForm(),
-              CustomButton(txt: 'Sign up')
+              CustomButton(text: 'Sign up')
             ],
           ),
         ),
