@@ -7,6 +7,7 @@ import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/cart/presentation/views/cart_view.dart';
 import 'package:laza/services/home/presentation/views/app_drawer.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
+import 'package:laza/services/home/presentation/views/widgets/new_arrival_inkwell.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
 
 import 'widgets/new_arrival_list.dart';
@@ -72,7 +73,15 @@ class HomeView extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: NewArrivalList(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+              child: Column(
+                children: [
+                  NewArrivalInkwell(),
+                  NewArrivalList(),
+                ],
+              ),
+            ),
           )
         ],
       ),
