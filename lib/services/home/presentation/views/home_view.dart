@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/utils/styles/colors.dart';
-import 'package:laza/core/utils/widgets/cart_icon.dart';
-import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
-import 'package:laza/services/home/presentation/views/app_drawer.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/new_arrival_inkwell.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
@@ -18,61 +14,41 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> key = GlobalKey();
-    return Scaffold(
-      key: key,
-      drawer: const AppDrawer(),
-      appBar: CustomAppBar(
-        leadingWidget: IconButton(
-          onPressed: () {
-            key.currentState!.openDrawer();
-          },
-          icon: const ImageIcon(
-            AssetImage('assets/images/menu.png'),
-            size: 25.0,
-            color: AppColors.darkBlack,
+    return const CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TitleText(text: 'Hello'),
+                SizedBox(height: 5.0),
+                HintText(text: 'Welcome to Laza.'),
+                SizedBox(height: 20.0),
+                SearchRow(),
+                SizedBox(height: 20.0),
+                SizedBox(
+                  height: 90.0,
+                  child: BrandsList(),
+                ),
+              ],
+            ),
           ),
         ),
-        actions: const [
-        CartIcon(),
-        ],
-      ),
-      body: const CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TitleText(text: 'Hello'),
-                  SizedBox(height: 5.0),
-                  HintText(text: 'Welcome to Laza.'),
-                  SizedBox(height: 20.0),
-                  SearchRow(),
-                  SizedBox(height: 20.0),
-                  SizedBox(
-                    height: 90.0,
-                    child: BrandsList(),
-                  ),
-                ],
-              ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            child: Column(
+              children: [
+                NewArrivalInkwell(),
+                ProductsList(),
+              ],
             ),
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-              child: Column(
-                children: [
-                  NewArrivalInkwell(),
-                  ProductsList(),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

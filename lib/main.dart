@@ -15,6 +15,7 @@ import 'package:laza/services/details/presentation/views/add_review_view.dart';
 import 'package:laza/services/details/presentation/views/product_details_view.dart';
 import 'package:laza/services/home/presentation/views/all_products_view.dart';
 import 'package:laza/services/home/presentation/views/home_view.dart';
+import 'package:laza/services/layout.dart';
 import 'package:laza/services/on_boarding/presentation/views/on_boarding_view.dart';
 
 import 'services/cart/presentation/views/order_confirmed_view.dart';
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
         OrderConfirmedView.routeName: (context) => const OrderConfirmedView(),
         NewArrivalView.routeName: (context) => const NewArrivalView(),
       },
-      home: const HomeView(),
+      home: const AppLayout(),
     );
   }
 }

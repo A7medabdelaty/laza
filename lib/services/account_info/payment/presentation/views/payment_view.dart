@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
-import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/services/account_info/payment/presentation/views/widgets/add_card_button.dart';
 import 'package:laza/services/account_info/payment/presentation/views/widgets/cards_list.dart';
@@ -14,10 +12,6 @@ class PaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(
-        leadingWidget: ArrowBackIcon(),
-        titleText: 'Payment',
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
