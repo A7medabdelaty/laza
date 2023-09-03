@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
-import 'package:laza/core/utils/widgets/app_bar_custom_widget.dart';
+import 'package:laza/core/utils/widgets/cart_icon.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
-import 'package:laza/services/cart/presentation/views/cart_view.dart';
 import 'package:laza/services/home/presentation/views/app_drawer.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/new_arrival_inkwell.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
 
-import 'widgets/new_arrival_list.dart';
+import 'widgets/products_list.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -34,19 +33,8 @@ class HomeView extends StatelessWidget {
             color: AppColors.darkBlack,
           ),
         ),
-        actions: [
-          AppBarCustomWidget(
-            icon: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, CartView.routeName);
-              },
-              icon: const ImageIcon(
-                AssetImage('assets/images/bag.png'),
-                size: 25.0,
-                color: AppColors.darkBlack,
-              ),
-            ),
-          ),
+        actions: const [
+        CartIcon(),
         ],
       ),
       body: const CustomScrollView(
@@ -78,7 +66,7 @@ class HomeView extends StatelessWidget {
               child: Column(
                 children: [
                   NewArrivalInkwell(),
-                  NewArrivalList(),
+                  ProductsList(),
                 ],
               ),
             ),

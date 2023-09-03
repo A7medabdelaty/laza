@@ -4,7 +4,7 @@ import 'package:laza/core/utils/widgets/app_bar_custom_widget.dart';
 import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/services/cart/presentation/views/cart_view.dart';
-import 'package:laza/services/home/presentation/views/widgets/new_arrival_list.dart';
+import 'package:laza/services/home/presentation/views/widgets/products_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/products_sort_row.dart';
 
 class NewArrivalView extends StatelessWidget {
@@ -40,7 +40,7 @@ class NewArrivalView extends StatelessWidget {
               SizedBox(height: 20.0),
               ProductsSortRow(),
               SizedBox(height: 5.0),
-              NewArrivalList(),
+              ProductsList(),
             ],
           ),
         ),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:laza/services/home/data/product_model.dart';
 import 'package:laza/services/home/presentation/views/widgets/new_arrival_item.dart';
 
-class NewArrivalList extends StatelessWidget {
-  const NewArrivalList({super.key});
+class ProductsList extends StatelessWidget {
+  const ProductsList({super.key});
 
   @override
   Widget build(BuildContext context) {
