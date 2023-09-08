@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/services/auth/get_started/data/models/social_media_model.dart';
+import 'package:laza/services/auth/get_started/presentation/view_model/get_started_cubit.dart';
 import 'package:laza/services/auth/get_started/presentation/views/widgets/social_media_button.dart';
 
 class SocialMediaButtons extends StatelessWidget {
-  const SocialMediaButtons({super.key});
-
+  const SocialMediaButtons({super.key, required this.cubit});
+  final GetStartedCubit cubit;
   @override
   Widget build(BuildContext context) {
     final List<SocialMediaModel> socialMediaModels = [
@@ -28,7 +29,7 @@ class SocialMediaButtons extends StatelessWidget {
 
     return Column(
       children: socialMediaModels.map((e) {
-        return SocialMediaButton(model: e);
+        return SocialMediaButton(model: e,cubit:cubit);
       }).toList(),
     );
   }

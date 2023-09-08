@@ -12,6 +12,8 @@ import 'package:laza/services/wishlist/presentation/views/wish_list_view.dart';
 class AppLayout extends StatefulWidget {
   const AppLayout({super.key});
 
+  static const String routeName = 'app layout';
+
   @override
   State<AppLayout> createState() => _AppLayoutState();
 }

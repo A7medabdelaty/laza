@@ -15,11 +15,13 @@ import 'package:laza/services/details/presentation/views/product_details_view.da
 import 'package:laza/services/details/presentation/views/product_reviews_view.dart';
 import 'package:laza/services/home/presentation/views/all_products_view.dart';
 import 'package:laza/services/home/presentation/views/home_view.dart';
+import 'package:laza/services/layout.dart';
 import 'package:laza/services/on_boarding/presentation/views/on_boarding_view.dart';
 class AppRouter{
   static Map<String, Widget Function(BuildContext)> appRoutes() {
     return {
       OnBoardingView.routeName: (context) => const OnBoardingView(),
+      AppLayout.routeName: (context) => const AppLayout(),
       HomeView.routeName: (context) => const HomeView(),
       GetStartedView.routeName: (context) => const GetStartedView(),
       RegisterView.routeName: (context) => const RegisterView(),
