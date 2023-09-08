@@ -46,7 +46,7 @@ class GetStartedRepoImpl extends GetStartedRepo {
         );
       }
     } catch (e) {
-      return Left(GeneralFailures('Something Went Wrong'));
+      return Left(GeneralFailures(e.toString()));
     }
   }
 }

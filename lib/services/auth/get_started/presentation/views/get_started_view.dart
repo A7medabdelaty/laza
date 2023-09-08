@@ -21,27 +21,27 @@ class GetStartedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => GetStartedCubit(getIt.get<GetStartedRepoImpl>()),
-      child: BlocConsumer<GetStartedCubit, GetStartedState>(
-        listener: (context, state) {
-          if (state is GetStartedSignInSuccess) {
-            Navigator.pushNamed(context, AppLayout.routeName);
-          }
-          if (state is GetStartedSignInLoading) {
-            showLoaderDialog(context);
-          }
-        },
-        builder: (context, state) {
-          if (state is GetStartedSignInFailure) {
-            return CustomErrorMessage(state.errMessage);
-          } else {
-            GetStartedCubit cubit = BlocProvider.of<GetStartedCubit>(context);
-            return Scaffold(
-              appBar: const CustomAppBar(
-                leadingWidget: ArrowBackIcon(),
-              ),
-              body: Column(
+    return Scaffold(
+      appBar: const CustomAppBar(
+        leadingWidget: ArrowBackIcon(),
+      ),
+      body: BlocProvider(
+        create: (context) => GetStartedCubit(getIt.get<GetStartedRepoImpl>()),
+        child: BlocConsumer<GetStartedCubit, GetStartedState>(
+          listener: (context, state) {
+            if (state is GetStartedSignInSuccess) {
+              Navigator.pushNamed(context, AppLayout.routeName);
+            }
+            if (state is GetStartedSignInLoading) {
+              showLoaderDialog(context);
+            }
+          },
+          builder: (context, state) {
+            if (state is GetStartedSignInFailure) {
+              return CustomErrorMessage(state.errMessage);
+            } else {
+              GetStartedCubit cubit = BlocProvider.of<GetStartedCubit>(context);
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const TitleText(text: 'Let’s Get Started'),
@@ -59,10 +59,10 @@ class GetStartedView extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),
-            );
-          }
-        },
+              );
+            }
+          },
+        ),
       ),
     );
   }

@@ -16,7 +16,9 @@ class AuthService extends FirebaseService {
   }
 
   Future<UserCredential> signInWithFacebook() async {
-    final LoginResult loginResult = await FacebookAuth.instance.login();
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+      permissions: ['public_profile', 'email'],
+    );
     final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(loginResult.accessToken!.token);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
