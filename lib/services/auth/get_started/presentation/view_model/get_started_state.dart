@@ -4,12 +4,12 @@ abstract class GetStartedState {}
 
 class GetStartedInitial extends GetStartedState {}
 
-class GetStartedGoogleSignInLoading extends GetStartedState {}
+class GetStartedSignInLoading extends GetStartedState {}
 
-class GetStartedGoogleSignInSuccess extends GetStartedState {}
+class GetStartedSignInSuccess extends GetStartedState {}
 
-class GetStartedGoogleSignInFailure extends GetStartedState {
+class GetStartedSignInFailure extends GetStartedState {
   final String errMessage;
 
-  GetStartedGoogleSignInFailure(this.errMessage);
+  GetStartedSignInFailure(this.errMessage);
 }

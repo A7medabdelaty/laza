@@ -30,4 +30,23 @@ class GetStartedRepoImpl extends GetStartedRepo {
       return Left(GeneralFailures('Something Went Wrong'));
     }
   }
+
+  @override
+  Future<Either<Failure, UserCredential>> facebookSignIn() async {
+    try {
+      return Right(await authService.signInWithFacebook());
+    } on FirebaseException catch (e) {
+      if (e is FirebaseAuthException) {
+        return Left(
+          FirebaseFailure.fromAuthException(e),
+        );
+      } else {
+        return Left(
+          FirebaseFailure('Something went wrong, code: ${e.code}'),
+        );
+      }
+    } catch (e) {
+      return Left(GeneralFailures('Something Went Wrong'));
+    }
+  }
 }

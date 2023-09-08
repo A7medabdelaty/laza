@@ -25,15 +25,15 @@ class GetStartedView extends StatelessWidget {
       create: (context) => GetStartedCubit(getIt.get<GetStartedRepoImpl>()),
       child: BlocConsumer<GetStartedCubit, GetStartedState>(
         listener: (context, state) {
-          if (state is GetStartedGoogleSignInSuccess) {
+          if (state is GetStartedSignInSuccess) {
             Navigator.pushNamed(context, AppLayout.routeName);
           }
-          if (state is GetStartedGoogleSignInLoading) {
+          if (state is GetStartedSignInLoading) {
             showLoaderDialog(context);
           }
         },
         builder: (context, state) {
-          if (state is GetStartedGoogleSignInFailure) {
+          if (state is GetStartedSignInFailure) {
             return CustomErrorMessage(state.errMessage);
           } else {
             GetStartedCubit cubit = BlocProvider.of<GetStartedCubit>(context);

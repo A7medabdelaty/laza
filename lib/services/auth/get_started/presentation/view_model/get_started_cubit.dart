@@ -8,14 +8,27 @@ class GetStartedCubit extends Cubit<GetStartedState> {
   final GetStartedRepo getStartedRepo;
 
   Future<void> googleSignIn() async {
-    emit(GetStartedGoogleSignInLoading());
+    emit(GetStartedSignInLoading());
     var result = await getStartedRepo.googleSignIn();
     result.fold(
       (failure) {
-        emit(GetStartedGoogleSignInFailure(failure.errMessage));
+        emit(GetStartedSignInFailure(failure.errMessage));
       },
       (r) {
-        emit(GetStartedGoogleSignInSuccess());
+        emit(GetStartedSignInSuccess());
+      },
+    );
+  }
+
+  Future<void> facebookSignIn() async {
+    emit(GetStartedSignInLoading());
+    var result = await getStartedRepo.facebookSignIn();
+    result.fold(
+      (failure) {
+        emit(GetStartedSignInFailure(failure.errMessage));
+      },
+      (r) {
+        emit(GetStartedSignInSuccess());
       },
     );
   }

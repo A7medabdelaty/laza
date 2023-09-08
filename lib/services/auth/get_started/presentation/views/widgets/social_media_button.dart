@@ -4,7 +4,8 @@ import 'package:laza/services/auth/get_started/data/models/social_media_model.da
 import 'package:laza/services/auth/get_started/presentation/view_model/get_started_cubit.dart';
 
 class SocialMediaButton extends StatelessWidget {
-  const SocialMediaButton({super.key, required this.model, required this.cubit});
+  const SocialMediaButton(
+      {super.key, required this.model, required this.cubit});
 
   final SocialMediaModel model;
   final GetStartedCubit cubit;
@@ -13,8 +14,10 @@ class SocialMediaButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if(model.txt == 'Google') {
+        if (model.txt == 'Google') {
           cubit.googleSignIn();
+        } else if (model.txt == 'Facebook') {
+          cubit.facebookSignIn();
         }
       },
       child: Padding(

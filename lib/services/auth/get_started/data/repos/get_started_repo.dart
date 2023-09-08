@@ -4,4 +4,5 @@ import 'package:laza/core/failures/failure.dart';
 
 abstract class GetStartedRepo{
   Future<Either<Failure, UserCredential>> googleSignIn();
+  Future<Either<Failure, UserCredential>> facebookSignIn();
 }
