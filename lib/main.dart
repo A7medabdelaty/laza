@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:laza/core/firebase_service.dart';
+import 'package:laza/core/utils/services/firebase_service.dart';
 import 'package:laza/core/utils/app_routes.dart';
 import 'package:laza/core/utils/styles/theme.dart';
 import 'package:laza/services/layout.dart';
