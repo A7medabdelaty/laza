@@ -6,6 +6,7 @@ import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/menu_icon.dart';
 import 'package:laza/services/account_info/payment/presentation/views/payment_view.dart';
 import 'package:laza/services/cart/presentation/views/cart_view.dart';
+import 'package:laza/services/home/presentation/views/app_drawer.dart';
 import 'package:laza/services/home/presentation/views/home_view.dart';
 import 'package:laza/services/wishlist/presentation/views/wish_list_view.dart';
 
@@ -35,6 +36,7 @@ class _AppLayoutState extends State<AppLayout> {
 
     return Scaffold(
       key: key,
+      drawer: const AppDrawer(),
       appBar: CustomAppBar(
         leadingWidget: MenuIcon(scaffoldKey: key),
         titleText: titles[currentIndex],
