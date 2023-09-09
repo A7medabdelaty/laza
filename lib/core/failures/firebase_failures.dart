@@ -14,6 +14,10 @@ class FirebaseFailure extends Failure {
       message = 'Email not found';
     } else if (exception.code == 'too-many-requests') {
       message = 'Too many attempts please try later';
+    } else if (exception.code == 'weak-password') {
+      message = 'The password provided is too weak.';
+    } else if (exception.code == 'email-already-in-use') {
+      message = 'The account already exists for that email.';
     } else {
       message = 'Something went wrong, please try later!!';
     }

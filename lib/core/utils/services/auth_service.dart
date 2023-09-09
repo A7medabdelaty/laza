@@ -23,4 +23,11 @@ class AuthService extends FirebaseService {
         FacebookAuthProvider.credential(loginResult.accessToken!.token);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
+
+  Future<UserCredential> createUserWithEmail(String emailAddress, String password) async {
+    return await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: emailAddress,
+      password: password,
+    );
+  }
 }

@@ -12,6 +12,13 @@ class AuthCustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return '$label cannot be empty';
+        } else {
+          return null;
+        }
+      },
       controller: controller,
       decoration: InputDecoration(
         border: const UnderlineInputBorder(
