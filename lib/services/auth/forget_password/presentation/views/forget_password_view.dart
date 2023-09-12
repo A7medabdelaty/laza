@@ -5,7 +5,7 @@ import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
 import 'package:laza/core/utils/widgets/hint_text.dart';
 import 'package:laza/core/utils/widgets/title_text.dart';
-import 'package:laza/services/auth/register/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:laza/services/auth/register/presentation/views/widgets/auth_custom_text_form_field.dart';
 
 import 'confirmation_code_view.dart';
 

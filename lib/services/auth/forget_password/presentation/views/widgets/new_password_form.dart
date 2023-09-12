@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laza/services/auth/register/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:laza/services/auth/register/presentation/views/widgets/auth_custom_text_form_field.dart';
 
 class NewPasswordForm extends StatelessWidget {
   const NewPasswordForm({super.key});

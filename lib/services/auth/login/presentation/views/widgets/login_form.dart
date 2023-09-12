@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laza/services/auth/login/presentation/view_model/login_cubit.dart';
 import 'package:laza/services/auth/login/presentation/views/widgets/forgot_password_text.dart';
-import 'package:laza/services/auth/register/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:laza/services/auth/register/presentation/views/widgets/auth_custom_text_form_field.dart';
 import 'package:laza/services/auth/register/presentation/views/widgets/remember_me_widget.dart';
 
 class LoginForm extends StatelessWidget {
@@ -26,6 +26,7 @@ class LoginForm extends StatelessWidget {
           AuthCustomTextFormField(
             controller: cubit.passwordController,
             label: 'password',
+            passwordField: true,
           ),
           const SizedBox(
             height: 30.0,

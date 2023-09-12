@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/services/auth/register/presentation/view_model/register_cubit.dart';
 
-import 'custom_text_form_field.dart';
+import 'auth_custom_text_form_field.dart';
 import 'remember_me_widget.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -31,10 +31,9 @@ class RegisterForm extends StatelessWidget {
                 AuthCustomTextFormField(
                   controller: cubit.passwordController,
                   label: 'Password',
+                  passwordField: true,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20.0),
                 AuthCustomTextFormField(
                   controller: cubit.emailController,
                   label: 'email',

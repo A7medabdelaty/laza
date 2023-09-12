@@ -4,6 +4,8 @@ abstract class RegisterState {}
 
 class RegisterInitial extends RegisterState {}
 
+class RegisterSuffixOnTap extends RegisterState {}
+
 class RegisterUserLoading extends RegisterState {}
 
 class RegisterUserFailure extends RegisterState {
