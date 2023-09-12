@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laza/services/account_info/address/presentation/views/address_view.dart';
 import 'package:laza/services/account_info/payment/presentation/views/new_card_view.dart';
 import 'package:laza/services/account_info/payment/presentation/views/payment_view.dart';
-import 'package:laza/services/auth/forget_password/presentation/views/confirmation_code_view.dart';
 import 'package:laza/services/auth/forget_password/presentation/views/forget_password_view.dart';
-import 'package:laza/services/auth/forget_password/presentation/views/new_password.dart';
 import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
 import 'package:laza/services/auth/login/presentation/views/login_view.dart';
 import 'package:laza/services/auth/register/presentation/views/register_view.dart';
@@ -27,8 +25,6 @@ class AppRouter{
       RegisterView.routeName: (context) => const RegisterView(),
       LoginView.routeName: (context) => const LoginView(),
       ForgetPasswordView.routeName: (context) => ForgetPasswordView(),
-      ConfirmationCodeView.routeName: (context) => const ConfirmationCodeView(),
-      NewPasswordView.routeName: (context) => const NewPasswordView(),
       ProductDetailsView.routeName: (context) => const ProductDetailsView(),
       ProductReviewsView.routeName: (context) => const ProductReviewsView(),
       AddReviewView.routeName: (context) => const AddReviewView(),

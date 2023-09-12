@@ -26,7 +26,7 @@ class RegisterView extends StatelessWidget {
         body: BlocConsumer<RegisterCubit, RegisterState>(
           listener: (context, state) {
             if (state is RegisterUserSuccess) {
-              Navigator.pushNamed(context, AppLayout.routeName);
+              Navigator.pushReplacementNamed(context, AppLayout.routeName);
             }
             if (state is RegisterUserLoading) {
               Utils.showLoaderDialog(context);

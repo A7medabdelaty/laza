@@ -27,7 +27,7 @@ class LoginView extends StatelessWidget {
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
-              Navigator.pushNamed(context, AppLayout.routeName);
+              Navigator.pushReplacementNamed(context, AppLayout.routeName);
             }
             if (state is LoginLoading) {
               Utils.showLoaderDialog(context);
@@ -36,6 +36,7 @@ class LoginView extends StatelessWidget {
           builder: (context, state) {
             LoginCubit cubit = BlocProvider.of<LoginCubit>(context);
             if (state is LoginFailure) {
+              Navigator.pop(context);
               return CustomErrorMessage(state.errMessage);
             } else {
               return Scaffold(

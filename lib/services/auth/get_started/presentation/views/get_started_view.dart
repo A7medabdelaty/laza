@@ -30,7 +30,7 @@ class GetStartedView extends StatelessWidget {
         child: BlocConsumer<GetStartedCubit, GetStartedState>(
           listener: (context, state) {
             if (state is GetStartedSignInSuccess) {
-              Navigator.pushNamed(context, AppLayout.routeName);
+              Navigator.pushReplacementNamed(context, AppLayout.routeName);
             }
             if (state is GetStartedSignInLoading) {
               Utils.showLoaderDialog(context);

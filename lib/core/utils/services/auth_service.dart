@@ -43,4 +43,9 @@ class AuthService extends FirebaseService {
       password: password,
     );
   }
+
+  Future<void> sendVerificationEmail(email) async {
+    return await FirebaseAuth.instance
+        .sendPasswordResetEmail(email: email);
+  }
 }
