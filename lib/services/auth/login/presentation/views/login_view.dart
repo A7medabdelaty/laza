@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:laza/core/utils/custom_error_widget.dart';
-import 'package:laza/core/utils/custom_loading_dialog.dart';
 import 'package:laza/core/utils/service_locator.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/core/utils/utils.dart';
 import 'package:laza/core/utils/widgets/arrow_back_icon.dart';
 import 'package:laza/core/utils/widgets/custom_app_bar.dart';
 import 'package:laza/core/utils/widgets/custom_button.dart';
@@ -30,7 +30,7 @@ class LoginView extends StatelessWidget {
               Navigator.pushNamed(context, AppLayout.routeName);
             }
             if (state is LoginLoading) {
-              showLoaderDialog(context);
+              Utils.showLoaderDialog(context);
             }
           },
           builder: (context, state) {
