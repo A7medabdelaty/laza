@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RememberMeWidget extends StatefulWidget {
   const RememberMeWidget({super.key});
@@ -9,7 +10,7 @@ class RememberMeWidget extends StatefulWidget {
 }
 
 class _RememberMeWidgetState extends State<RememberMeWidget> {
-  bool isActive = true;
+  bool isActive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,9 @@ class _RememberMeWidgetState extends State<RememberMeWidget> {
           scale: 0.7,
           child: Switch(
             value: isActive,
-            onChanged: (value) {
+            onChanged: (value) async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              prefs.setBool('remember me', value);
               setState(() {
                 isActive = value;
               });
