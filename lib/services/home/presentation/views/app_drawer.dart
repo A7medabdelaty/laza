@@ -1,11 +1,14 @@
 import 'dart:ui';
 import 'dart:math' as math;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:laza/core/utils/services/cache_helper.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 import 'package:laza/core/utils/widgets/app_bar_custom_widget.dart';
 import 'package:laza/core/utils/widgets/custom_switch_widget.dart';
+import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
 import 'package:laza/services/home/presentation/views/widgets/drawer_customer_info.dart';
 import 'package:laza/services/home/presentation/views/widgets/drawer_side_menu_item.dart';
 
@@ -77,7 +80,14 @@ class AppDrawer extends StatelessWidget {
                       icon: Icons.settings_outlined, text: 'Settings'),
                   const Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      FirebaseAuth.instance.signOut();
+                      CacheHelper.putData(key: 'remember me', value: false);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        GetStartedView.routeName,
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                         vertical: 15.0,
