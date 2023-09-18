@@ -1,12 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/core/utils/utils.dart';
 import 'package:laza/services/details/presentation/views/product_details_view.dart';
-import 'package:laza/services/home/data/product_model.dart';
+import 'package:laza/services/home/data/models/product_model.dart';
 
-class NewArrivalItem extends StatelessWidget {
-  const NewArrivalItem({super.key, required this.product});
+class ProductlItem extends StatelessWidget {
+  const ProductlItem({super.key, required this.product});
 
   final ProductModel product;
 
@@ -14,7 +16,11 @@ class NewArrivalItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetailsView.routeName,arguments: product);
+        Navigator.pushNamed(
+          context,
+          ProductDetailsView.routeName,
+          arguments: product,
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,8 +33,15 @@ class NewArrivalItem extends StatelessWidget {
                 aspectRatio: 160 / 205,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10.0),
-                  child: Image.asset(
-                    'assets/images/${product.img}.png',
+                  child: CachedNetworkImage(
+                    imageUrl: '${product.images?.first}',
+                    errorWidget: (context, url, error) {
+                      return Image.network(
+                          'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg');
+                    },
+                    placeholder: (context, url) {
+                      return Utils.loadingIndicator();
+                    },
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -44,12 +57,12 @@ class NewArrivalItem extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            product.title,
+            '${product.title}',
             style: AppTextStyles.text11,
           ),
           const SizedBox(height: 5),
           Text(
-            '\$${product.price.round()}',
+            '\$${product.price?.round()}',
             style: AppTextStyles.text13.copyWith(
               fontWeight: FontWeight.w600,
             ),

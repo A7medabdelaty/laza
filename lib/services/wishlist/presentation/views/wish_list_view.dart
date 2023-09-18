@@ -15,7 +15,7 @@ class WishlistView extends StatelessWidget {
             SizedBox(height: 20.0),
             WishlistEditRow(),
             SizedBox(height: 20.0),
-            ProductsList(),
+            ProductsList(products: []),
           ],
         ),
       ),

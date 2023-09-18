@@ -33,7 +33,7 @@ class AppRouter{
       PaymentView.routeName: (context) => const PaymentView(),
       NewCardView.routeName: (context) => const NewCardView(),
       OrderConfirmedView.routeName: (context) => const OrderConfirmedView(),
-      NewArrivalView.routeName: (context) => const NewArrivalView(),
+      AllProductsView.routeName: (context) => const AllProductsView(),
     };
   }
 }

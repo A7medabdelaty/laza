@@ -6,6 +6,8 @@ import 'package:laza/core/utils/app_routes.dart';
 import 'package:laza/core/utils/services/firebase_service.dart';
 import 'package:laza/core/utils/styles/theme.dart';
 import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
+import 'package:laza/services/home/data/repos/home_repo_impl.dart';
+import 'package:laza/services/home/presentation/view_model/home_cubit.dart';
 import 'package:laza/services/layout.dart';
 
 import 'bloc_observer.dart';
@@ -34,11 +36,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppThemes.lightTheme,
-      routes: AppRouter.appRoutes(),
-      home: selectHomeScreen(),
+    return BlocProvider(
+      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..getProducts(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppThemes.lightTheme,
+        routes: AppRouter.appRoutes(),
+        home: selectHomeScreen(),
+      ),
     );
   }
 }

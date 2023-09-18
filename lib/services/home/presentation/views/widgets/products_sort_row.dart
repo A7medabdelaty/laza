@@ -3,20 +3,22 @@ import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
 class ProductsSortRow extends StatelessWidget {
-  const ProductsSortRow({super.key});
+  const ProductsSortRow({super.key, required this.count});
+
+  final int count;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '365 Items',
+              '$count Items',
               style: AppTextStyles.text17,
             ),
-            Text(
+            const Text(
               'Available in stock',
               style: AppTextStyles.text15,
             ),

@@ -10,7 +10,7 @@ class NewArrivalInkwell extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, NewArrivalView.routeName);
+        Navigator.pushNamed(context, AllProductsView.routeName);
       },
       child: const Row(
         children: [
