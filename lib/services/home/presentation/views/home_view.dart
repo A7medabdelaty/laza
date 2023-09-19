@@ -7,9 +7,8 @@ import 'package:laza/core/utils/widgets/title_text.dart';
 import 'package:laza/services/home/presentation/view_model/home_cubit.dart';
 import 'package:laza/services/home/presentation/views/widgets/brands_list.dart';
 import 'package:laza/services/home/presentation/views/widgets/new_arrival_inkwell.dart';
+import 'package:laza/services/home/presentation/views/widgets/products_sliver_grid.dart';
 import 'package:laza/services/home/presentation/views/widgets/search_row.dart';
-
-import 'widgets/products_list.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -18,11 +17,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        const SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,33 +36,25 @@ class HomeView extends StatelessWidget {
                   height: 90.0,
                   child: BrandsList(),
                 ),
+                SizedBox(height: 10),
+                NewArrivalInkwell(),
+                SizedBox(height: 15.0),
               ],
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-            child: Column(
-              children: [
-                const NewArrivalInkwell(),
-                BlocBuilder<HomeCubit, HomeState>(
-                  builder: (context, state) {
-                    if (state is HomeGetProductsFailure) {
-                      return CustomErrorMessage(state.errMessage);
-                    } else if (state is HomeGetProductsSuccess) {
-                      return ProductsList(products: state.products,);
-                    }else{
-                      return Utils.loadingIndicator();
-                    }
-                  },
-                ),
-              ],
-            ),
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              if (state is HomeGetProductsSuccess) {
+                return ProductsSliverGrid(products: state.products);
+              } else if (state is HomeGetProductsFailure) {
+                return SliverToBoxAdapter(child: CustomErrorMessage(state.errMessage));
+              } else {
+                return SliverToBoxAdapter(child: Utils.loadingIndicator());
+              }
+            },
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

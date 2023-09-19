@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laza/services/home/presentation/views/widgets/products_list.dart';
+import 'package:laza/services/home/presentation/views/widgets/products_sliver_grid.dart';
 import 'package:laza/services/wishlist/presentation/views/widgets/edit_row.dart';
 
 class WishlistView extends StatelessWidget {
@@ -15,7 +15,7 @@ class WishlistView extends StatelessWidget {
             SizedBox(height: 20.0),
             WishlistEditRow(),
             SizedBox(height: 20.0),
-            ProductsList(products: []),
+            ProductsSliverGrid(products: []),
           ],
         ),
       ),

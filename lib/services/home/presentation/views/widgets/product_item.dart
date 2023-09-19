@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
-import 'package:laza/core/utils/utils.dart';
 import 'package:laza/services/details/presentation/views/product_details_view.dart';
 import 'package:laza/services/home/data/models/product_model.dart';
 
-class ProductlItem extends StatelessWidget {
-  const ProductlItem({super.key, required this.product});
+class ProductItem extends StatelessWidget {
+  const ProductItem({super.key, required this.product});
 
   final ProductModel product;
 
@@ -38,9 +37,6 @@ class ProductlItem extends StatelessWidget {
                     errorWidget: (context, url, error) {
                       return Image.network(
                           'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg');
-                    },
-                    placeholder: (context, url) {
-                      return Utils.loadingIndicator();
                     },
                     fit: BoxFit.fill,
                   ),
