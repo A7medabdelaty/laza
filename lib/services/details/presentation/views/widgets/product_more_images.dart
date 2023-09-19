@@ -1,29 +1,32 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 
 class ProductMoreImages extends StatelessWidget {
-  const ProductMoreImages({super.key});
+  const ProductMoreImages({super.key, required this.images});
+
+  final List<String> images;
 
   @override
   Widget build(BuildContext context) {
-    List<String> images = [
-      'product_1_img1',
-      'product_1_img2',
-      'product_1_img3',
-      'product_1_img4',
-    ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: images
-            .map(
-              (e) => Image.asset(
-                'assets/images/$e.png',
-                height: 77,
-                width: 77,
+        children: images.map(
+          (e) {
+            return Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: CachedNetworkImage(
+                    imageUrl: e,
+                  ),
+                ),
               ),
-            )
-            .toList(),
+            );
+          },
+        ).toList(),
       ),
     );
   }

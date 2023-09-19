@@ -3,8 +3,8 @@ import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
 class ProductTotalPrice extends StatelessWidget {
-  const ProductTotalPrice({super.key});
-
+  const ProductTotalPrice({super.key, required this.price});
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +32,7 @@ class ProductTotalPrice extends StatelessWidget {
             ],
           ),
           Text(
-            '\$125',
+            '\$$price',
             style: AppTextStyles.text17.copyWith(
               fontWeight: FontWeight.w600,
             ),

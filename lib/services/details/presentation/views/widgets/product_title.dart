@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
+import 'package:laza/services/home/data/models/product_model.dart';
 
 class ProductTitle extends StatelessWidget {
-  const ProductTitle({super.key});
+  const ProductTitle({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class ProductTitle extends StatelessWidget {
               Expanded(
                   flex: 4,
                   child: Text(
-                    'Men\'s Printed Pullover Hoodie',
+                    '${product.title}',
                     style: AppTextStyles.text13
                         .copyWith(color: AppColors.textLight),
                   )),
@@ -35,17 +38,21 @@ class ProductTitle extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: Text(
-                  'Nike Club Fleece',
+                  '${product.category?.name}',
                   style: AppTextStyles.text22
                       .copyWith(fontWeight: FontWeight.w600),
                 ),
               ),
               Expanded(
                 flex: 1,
-                child: Text(
-                  '\$120',
-                  style: AppTextStyles.text22
-                      .copyWith(fontWeight: FontWeight.w600),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    '\$${product.price}',
+                    style: AppTextStyles.text22.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ),
             ],

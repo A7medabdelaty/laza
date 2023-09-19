@@ -47,7 +47,8 @@ class HomeView extends StatelessWidget {
               if (state is HomeGetProductsSuccess) {
                 return ProductsSliverGrid(products: state.products);
               } else if (state is HomeGetProductsFailure) {
-                return SliverToBoxAdapter(child: CustomErrorMessage(state.errMessage));
+                return SliverToBoxAdapter(
+                    child: CustomErrorMessage(state.errMessage));
               } else {
                 return SliverToBoxAdapter(child: Utils.loadingIndicator());
               }

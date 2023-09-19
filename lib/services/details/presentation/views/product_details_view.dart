@@ -7,6 +7,7 @@ import 'package:laza/services/details/presentation/views/widgets/product_descrip
 import 'package:laza/services/details/presentation/views/widgets/product_reviews.dart';
 import 'package:laza/services/details/presentation/views/widgets/product_size_widget.dart';
 import 'package:laza/services/details/presentation/views/widgets/product_title.dart';
+import 'package:laza/services/home/data/models/product_model.dart';
 
 import 'widgets/product_cover_image.dart';
 import 'widgets/product_more_images.dart';
@@ -19,6 +20,8 @@ class ProductDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProductModel model =
+        ModalRoute.of(context)?.settings.arguments as ProductModel;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
@@ -33,25 +36,25 @@ class ProductDetailsView extends StatelessWidget {
           ),
         ],
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ProductCoverImage(),
-            SizedBox(height: 15),
-            ProductTitle(),
-            SizedBox(height: 20.0),
-            ProductMoreImages(),
-            SizedBox(height: 15.0),
-            ProductSizeWidget(),
-            SizedBox(height: 20.0),
-            ProductDescription(),
-            SizedBox(height: 15.0),
-            ProductReviews(),
-            SizedBox(height: 20.0),
-            ProductTotalPrice(),
-            SizedBox(height: 20.0),
-            CustomButton(text: 'Add to Cart'),
+            ProductCoverImage(coverImg: model.images?.first ?? ''),
+            const SizedBox(height: 15),
+            ProductTitle(product: model),
+            const SizedBox(height: 20.0),
+            ProductMoreImages(images: model.images ?? []),
+            const SizedBox(height: 15.0),
+            const ProductSizeWidget(),
+            const SizedBox(height: 20.0),
+            ProductDescription(description: model.description ?? ''),
+            const SizedBox(height: 15.0),
+            const ProductReviews(),
+            const SizedBox(height: 20.0),
+            ProductTotalPrice(price: '${model.price}'),
+            const SizedBox(height: 20.0),
+            const CustomButton(text: 'Add to Cart'),
           ],
         ),
       ),

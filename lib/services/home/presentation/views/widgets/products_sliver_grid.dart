@@ -10,9 +10,12 @@ class ProductsSliverGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
-      delegate: SliverChildBuilderDelegate((context, index) {
-        return ProductItem(product: products[index]);
-      }),
+      delegate: SliverChildBuilderDelegate(
+        childCount: products.length,
+        (context, index) {
+          return ProductItem(product: products[index]);
+        },
+      ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisExtent: 260,

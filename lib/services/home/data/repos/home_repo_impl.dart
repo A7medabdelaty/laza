@@ -16,15 +16,15 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<ProductModel>>> getProducts() async {
     List<ProductModel> products = [];
     try {
-      List results = await apiService
-          .get(endPoint: '/products');
+      List results = await apiService.get(endPoint: '/products');
       for (var element in results) {
         products.add(ProductModel.fromJson(element));
       }
     } on DioException catch (dioException) {
       return Left(ApiFailure.fromDioException(dioException));
     } catch (exception) {
-      return Left(GeneralFailures('Something went wrong, try again later, code ${exception.toString()}'));
+      return Left(GeneralFailures(
+          'Something went wrong, try again later, code ${exception.toString()}'));
     }
     return Right(products);
   }
