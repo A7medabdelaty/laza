@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:laza/core/utils/services/cache_helper.dart';
+import 'package:laza/core/utils/services/local/cache_helper.dart';
 import 'package:laza/core/utils/app_routes.dart';
-import 'package:laza/core/utils/services/firebase_service.dart';
 import 'package:laza/core/utils/styles/theme.dart';
 import 'package:laza/services/auth/get_started/presentation/views/get_started_view.dart';
 import 'package:laza/services/home/data/repos/home_repo_impl.dart';
@@ -12,6 +11,7 @@ import 'package:laza/services/layout.dart';
 
 import 'bloc_observer.dart';
 import 'core/utils/service_locator.dart';
+import 'core/utils/services/remote/firebase_service.dart';
 
 void main() async {
   setupServiceLocator();

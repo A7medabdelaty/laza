@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:laza/core/failures/api_failures.dart';
 import 'package:laza/core/failures/failure.dart';
 import 'package:laza/core/failures/general_failures.dart';
-import 'package:laza/core/utils/services/api_service.dart';
+import 'package:laza/core/utils/services/remote/api_service.dart';
 import 'package:laza/services/home/data/models/product_model.dart';
 import 'package:laza/services/home/data/repos/home_repo.dart';
 

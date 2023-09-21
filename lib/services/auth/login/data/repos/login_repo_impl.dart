@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:laza/core/failures/failure.dart';
 import 'package:laza/core/failures/firebase_failures.dart';
 import 'package:laza/core/failures/general_failures.dart';
-import 'package:laza/core/utils/services/auth_service.dart';
+import 'package:laza/core/utils/services/remote/auth_service.dart';
 import 'package:laza/services/auth/login/data/repos/login_repo.dart';
 
 class LoginRepoImpl extends LoginRepo {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laza/core/utils/services/cache_helper.dart';
+import 'package:laza/core/utils/services/local/cache_helper.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
 class RememberMeWidget extends StatefulWidget {

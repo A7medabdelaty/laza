@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:laza/core/utils/services/cache_helper.dart';
+import 'package:laza/core/utils/services/local/cache_helper.dart';
 import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 import 'package:laza/core/utils/widgets/app_bar_custom_widget.dart';

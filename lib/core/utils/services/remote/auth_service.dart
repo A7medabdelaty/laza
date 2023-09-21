@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:laza/core/utils/services/firebase_service.dart';
+
+import 'firebase_service.dart';
 
 class AuthService extends FirebaseService {
   Future<UserCredential> signInWithGoogle() async {
