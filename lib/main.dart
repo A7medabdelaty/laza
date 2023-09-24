@@ -8,16 +8,18 @@ import 'package:laza/services/auth/get_started/presentation/views/get_started_vi
 import 'package:laza/services/home/data/repos/home_repo_impl.dart';
 import 'package:laza/services/home/presentation/view_model/home_cubit.dart';
 import 'package:laza/services/layout.dart';
+import 'package:laza/services/wishlist/data/repos/wishlist_repo_impl.dart';
+import 'package:laza/services/wishlist/presentation/view_model/wishlist_cubit.dart';
 
 import 'bloc_observer.dart';
 import 'core/utils/service_locator.dart';
 import 'core/utils/services/remote/firebase_service.dart';
 
 void main() async {
-  setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await FirebaseService.configureFirebase();
+  setupServiceLocator();
   await CacheHelper.init();
   runApp(const MyApp());
 }
@@ -36,8 +38,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..getProducts(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) {
+            return HomeCubit(getIt.get<HomeRepoImpl>())..getProducts();
+          },
+        ),
+        BlocProvider(
+          create: (context) {
+            return WishlistCubit(getIt.get<WishlistRepoImpl>())
+              ..getWishlistProducts();
+          },
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppThemes.lightTheme,

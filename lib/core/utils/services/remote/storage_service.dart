@@ -3,7 +3,7 @@ import 'package:laza/core/utils/services/remote/firebase_service.dart';
 import 'package:laza/services/home/data/models/product_model.dart';
 
 class StorageService extends FirebaseService {
-  CollectionReference<ProductModel> wishListCollection =
+  final CollectionReference<ProductModel> _wishListCollection =
       FirebaseFirestore.instance.collection('Wishlist').withConverter(
             fromFirestore: (snapshot, options) =>
                 ProductModel.fromJson(snapshot),
@@ -13,6 +13,6 @@ class StorageService extends FirebaseService {
   Future<DocumentReference<ProductModel>> addProductToWishlist(
     productModel,
   ) async {
-    return await wishListCollection.add(productModel);
+    return await _wishListCollection.add(productModel);
   }
 }

@@ -3,20 +3,22 @@ import 'package:laza/core/utils/styles/colors.dart';
 import 'package:laza/core/utils/styles/text_style.dart';
 
 class WishlistEditRow extends StatelessWidget {
-  const WishlistEditRow({super.key});
+  const WishlistEditRow({super.key, required this.productsCount});
+
+  final int productsCount;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '365 Items',
+              '$productsCount Items',
               style: AppTextStyles.text17,
             ),
-            Text(
+            const Text(
               'in wishlist',
               style: AppTextStyles.text15,
             ),
