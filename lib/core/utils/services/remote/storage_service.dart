@@ -15,4 +15,8 @@ class StorageService extends FirebaseService {
   ) async {
     return await _wishListCollection.add(productModel);
   }
+
+  Future<QuerySnapshot<ProductModel>> getWishlistProducts() async {
+    return await _wishListCollection.get();
+  }
 }

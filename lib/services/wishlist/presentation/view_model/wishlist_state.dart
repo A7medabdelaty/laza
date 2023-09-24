@@ -13,3 +13,13 @@ class WishlistAddProductFailure extends WishlistState {
 
   WishlistAddProductFailure(this.errMessage);
 }
+
+class GetWishlistProductsLoading extends WishlistState {}
+
+class GetWishlistProductsSuccess extends WishlistState {}
+
+class GetWishlistProductsFailure extends WishlistState {
+  final String errMessage;
+
+  GetWishlistProductsFailure(this.errMessage);
+}

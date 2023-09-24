@@ -13,9 +13,22 @@ class WishlistRepoImpl extends WishlistRepo {
   final StorageService storageService;
 
   @override
-  Future<Either<Failure, List<ProductModel>>> getWishlistProducts() {
-    // TODO: implement getWishlistProducts
-    throw UnimplementedError();
+  Future<Either<Failure, List<ProductModel>>> getWishlistProducts() async {
+    List<ProductModel> wishlist = [];
+    try {
+      var result = await storageService.getWishlistProducts();
+      for (var element in result.docs) {
+        wishlist.add(
+          ProductModel.fromJson(element),
+        );
+      }
+      return Right(wishlist);
+    } on FirebaseException catch (e) {
+      return Left(FirebaseFailure(e.message.toString()));
+    } catch (e) {
+      return Left(GeneralFailures(
+          'error while storing document, try again later, ${e.toString()}'));
+    }
   }
 
   @override
