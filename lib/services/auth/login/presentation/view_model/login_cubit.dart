@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:laza/core/utils/services/local/user_credential_manager.dart';
 import 'package:laza/services/auth/login/data/repos/login_repo.dart';
 
 part 'login_state.dart';
@@ -19,6 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold((failure) {
       emit(LoginFailure(failure.errMessage));
     }, (userCredential) {
+      UserCredentialManager.saveUserCredential(userCredential: userCredential);
       emit(LoginSuccess());
     });
   }

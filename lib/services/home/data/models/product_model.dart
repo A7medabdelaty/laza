@@ -8,6 +8,7 @@ class ProductModel {
     this.creationAt,
     this.updatedAt,
     this.category,
+    this.inWishlist = false,
   });
 
   ProductModel.fromJson(dynamic json) {
@@ -20,6 +21,7 @@ class ProductModel {
     updatedAt = json['updatedAt'];
     category =
         json['category'] != null ? Category.fromJson(json['category']) : null;
+    inWishlist = json['inWatchlist'];
   }
 
   int? id;
@@ -30,6 +32,7 @@ class ProductModel {
   String? creationAt;
   String? updatedAt;
   Category? category;
+  bool? inWishlist;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -43,6 +46,7 @@ class ProductModel {
     if (category != null) {
       map['category'] = category?.toJson();
     }
+    map['inWatchlist'] = inWishlist;
     return map;
   }
 }

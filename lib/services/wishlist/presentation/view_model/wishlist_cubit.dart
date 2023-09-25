@@ -20,7 +20,7 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   List<ProductModel> wishList = [];
 
-  void getWishlistProducts() async {
+  Future<void> getWishlistProducts() async {
     emit(GetWishlistProductsLoading());
     var result = await wishlistRepo.getWishlistProducts();
     result.fold((failure) {
