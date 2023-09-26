@@ -30,4 +30,11 @@ class WishlistCubit extends Cubit<WishlistState> {
       emit(GetWishlistProductsSuccess());
     });
   }
+
+  void onWishlistIconPressed({required ProductModel product}) {
+    if (product.inWishlist ?? false) {
+    } else {
+      addProductToWishlist(product);
+    }
+  }
 }

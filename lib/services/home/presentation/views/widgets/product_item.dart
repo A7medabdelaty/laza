@@ -49,9 +49,9 @@ class ProductItem extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      cubit.addProductToWishlist(product);
+                      cubit.onWishlistIconPressed(product: product);
                     },
-                    icon: cubit.wishList.contains(product)
+                    icon: (product.inWishlist ?? false)
                         ? const Icon(
                             FontAwesomeIcons.solidHeart,
                             color: AppColors.red,

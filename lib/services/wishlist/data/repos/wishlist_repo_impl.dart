@@ -18,9 +18,9 @@ class WishlistRepoImpl extends WishlistRepo {
     try {
       var result = await storageService.getWishlistProducts();
       for (var element in result.docs) {
-        wishlist.add(
-          ProductModel.fromJson(element),
-        );
+        var item = ProductModel.fromJson(element);
+        item.inWishlist = true;
+        wishlist.add(item);
       }
       return Right(wishlist);
     } on FirebaseException catch (e) {
@@ -35,6 +35,7 @@ class WishlistRepoImpl extends WishlistRepo {
   Future<Either<Failure, DocumentReference<ProductModel>>> addProductToWishlist(
       {required ProductModel product}) async {
     try {
+      product.inWishlist = true;
       return Right(await storageService.addProductToWishlist(product));
     } on FirebaseException catch (e) {
       return Left(FirebaseFailure(e.message.toString()));
