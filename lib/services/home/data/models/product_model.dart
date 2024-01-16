@@ -1,6 +1,7 @@
 class ProductModel {
   ProductModel({
     this.id,
+    this.docId = '',
     this.title,
     this.price,
     this.description,
@@ -13,6 +14,7 @@ class ProductModel {
 
   ProductModel.fromJson(dynamic json) {
     id = json['id'];
+    docId = json['docId'];
     title = json['title'];
     price = json['price'];
     description = json['description'];
@@ -25,6 +27,7 @@ class ProductModel {
   }
 
   int? id;
+  String? docId;
   String? title;
   int? price;
   String? description;
@@ -37,6 +40,7 @@ class ProductModel {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
+    map['docId'] = docId;
     map['title'] = title;
     map['price'] = price;
     map['description'] = description;

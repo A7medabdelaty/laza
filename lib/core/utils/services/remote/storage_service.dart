@@ -24,10 +24,21 @@ class StorageService extends FirebaseService {
   }
 
   Future<DocumentReference<ProductModel>> addProductToWishlist(
-    productModel,
+      ProductModel productModel) async {
+    return await getWishlistCollection().then(
+      (value) {
+        return value.add(productModel);
+      },
+    );
+  }
+
+  Future<void> removeProductFromWishlist(
+    ProductModel productModel,
   ) async {
     return await getWishlistCollection().then(
-      (value) => value.add(productModel),
+      (value) => value.where('id', whereIn: [productModel.id]).get().then(
+            (value) => value.docs[0].reference.delete(),
+          ),
     );
   }
 

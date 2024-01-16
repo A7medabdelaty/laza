@@ -44,4 +44,18 @@ class WishlistRepoImpl extends WishlistRepo {
           'error while storing document, try again later, ${e.toString()}'));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> removeProductFromWishlist(
+      {required ProductModel product}) async {
+    try {
+      product.inWishlist = false;
+      return Right(await storageService.removeProductFromWishlist(product));
+    } on FirebaseException catch (e) {
+      return Left(FirebaseFailure(e.message.toString()));
+    } catch (e) {
+      return Left(GeneralFailures(
+          'error while storing document, try again later, ${e.toString()}'));
+    }
+  }
 }

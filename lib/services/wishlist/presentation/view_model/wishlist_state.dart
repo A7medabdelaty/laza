@@ -14,6 +14,16 @@ class WishlistAddProductFailure extends WishlistState {
   WishlistAddProductFailure(this.errMessage);
 }
 
+class WishlistRemoveProductLoading extends WishlistState {}
+
+class WishlistRemoveProductSuccess extends WishlistState {}
+
+class WishlistRemoveProductFailure extends WishlistState {
+  final String errMessage;
+
+  WishlistRemoveProductFailure(this.errMessage);
+}
+
 class GetWishlistProductsLoading extends WishlistState {}
 
 class GetWishlistProductsSuccess extends WishlistState {}

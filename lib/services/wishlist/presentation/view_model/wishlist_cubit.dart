@@ -18,6 +18,17 @@ class WishlistCubit extends Cubit<WishlistState> {
     });
   }
 
+  void removeProductFromWishlist(ProductModel product) async {
+    emit(WishlistRemoveProductLoading());
+    var result = await wishlistRepo.removeProductFromWishlist(product: product);
+    result.fold((failure) {
+      emit(WishlistRemoveProductFailure(failure.errMessage));
+    }, (result) {
+      emit(WishlistRemoveProductSuccess());
+      getWishlistProducts();
+    });
+  }
+
   List<ProductModel> wishList = [];
 
   Future<void> getWishlistProducts() async {
@@ -33,6 +44,7 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   void onWishlistIconPressed({required ProductModel product}) {
     if (product.inWishlist ?? false) {
+      removeProductFromWishlist(product);
     } else {
       addProductToWishlist(product);
     }

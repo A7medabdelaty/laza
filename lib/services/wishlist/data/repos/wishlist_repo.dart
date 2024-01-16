@@ -8,4 +8,8 @@ abstract class WishlistRepo {
   Future<Either<Failure, void>> addProductToWishlist({
     required ProductModel product,
   });
+
+  Future<Either<Failure, void>> removeProductFromWishlist({
+    required ProductModel product,
+  });
 }
