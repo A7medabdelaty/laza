@@ -17,44 +17,49 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TitleText(text: 'Hello'),
-                SizedBox(height: 5.0),
-                HintText(text: 'Welcome to Laza.'),
-                SizedBox(height: 20.0),
-                SearchRow(),
-                SizedBox(height: 20.0),
-                SizedBox(
-                  height: 90.0,
-                  child: BrandsList(),
-                ),
-                SizedBox(height: 10),
-                NewArrivalInkwell(),
-                SizedBox(height: 15.0),
-              ],
+    return RefreshIndicator(
+      onRefresh: () {
+        return BlocProvider.of<HomeCubit>(context).getProducts();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TitleText(text: 'Hello'),
+                  SizedBox(height: 5.0),
+                  HintText(text: 'Welcome to Laza.'),
+                  SizedBox(height: 20.0),
+                  SearchRow(),
+                  SizedBox(height: 20.0),
+                  SizedBox(
+                    height: 90.0,
+                    child: BrandsList(),
+                  ),
+                  SizedBox(height: 10),
+                  NewArrivalInkwell(),
+                  SizedBox(height: 15.0),
+                ],
+              ),
             ),
-          ),
-          BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              if (state is HomeGetProductsSuccess) {
-                return ProductsSliverGrid(products: state.products);
-              } else if (state is HomeGetProductsFailure) {
-                return SliverToBoxAdapter(
-                    child: CustomErrorMessage(state.errMessage));
-              } else {
-                return SliverToBoxAdapter(child: Utils.loadingIndicator());
-              }
-            },
-          ),
-        ],
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                if (state is HomeGetProductsSuccess) {
+                  return ProductsSliverGrid(products: state.products);
+                } else if (state is HomeGetProductsFailure) {
+                  return SliverToBoxAdapter(
+                      child: CustomErrorMessage(state.errMessage));
+                } else {
+                  return SliverToBoxAdapter(child: Utils.loadingIndicator());
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
