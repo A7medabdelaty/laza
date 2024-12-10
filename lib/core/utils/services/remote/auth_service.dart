@@ -21,7 +21,7 @@ class AuthService extends FirebaseService {
       permissions: ['public_profile', 'email'],
     );
     final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+        FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
@@ -46,7 +46,6 @@ class AuthService extends FirebaseService {
   }
 
   Future<void> sendVerificationEmail(email) async {
-    return await FirebaseAuth.instance
-        .sendPasswordResetEmail(email: email);
+    return await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 }
